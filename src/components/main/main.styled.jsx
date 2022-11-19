@@ -176,7 +176,6 @@ export const DesignItemImg = styled.img`
 export const DesignItemText = styled.p`
   font-size: 18px;
   line-height: 102.99%;
-  // color: #323232;
   text-align: center;
   margin-top: 20px;
 `;
@@ -194,25 +193,20 @@ export const FamilyTitle = styled.h1`
   font-size: 48px;
   line-height: 150%;
   margin-bottom: 100px;
-
-  // color: #57463a;
 `;
 export const FamilyImg = styled.img``;
 export const FamilyAbout = styled.div`
   padding: 68px 235px 48px 40px;
-  // background: #ebeeeb;
 `;
 export const FamilyAboutTitle = styled.h2`
   font-size: 24px;
   line-height: 150%;
-  // color: #000000;
 `;
 export const FamilyAboutText = styled.p`
   width: 515px;
   font-weight: 300;
   font-size: 18px;
   line-height: 150%;
-  // color: #000000;
   margin-top: 40px;
   margin-bottom: 52px;
 `;
@@ -242,20 +236,17 @@ export const ServicesTitle = styled.h1`
   margin-bottom: 100px;
 `;
 export const ServicesOrder = styled.div`
-  // background: #e3dace;
   display: flex;
 `;
 export const ServicesOrderImg = styled.img``;
 export const ServicesSubTitle = styled.h2`
   font-size: 24px;
   line-height: 150%;
-  // color: #000000;
 `;
 export const ServicesText = styled.p`
   font-weight: 300;
   font-size: 18px;
   line-height: 150%;
-  // color: #000000;
   margin-top: 40px;
   margin-bottom: 55px;
   width: 539px;
@@ -277,7 +268,6 @@ export const ServicesContainer = styled.div`
 `;
 
 export const ServicesMK = styled.div`
-  // background: #d4cdc3;
   display: flex;
 `;
 export const ServicesMKimg = styled.img``;

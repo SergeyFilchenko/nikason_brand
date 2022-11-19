@@ -60,12 +60,10 @@ export const HeroItems = styled.li`
 export const HeroItem = styled.p`
   font-size: 48px;
   line-height: 150%;
-  // color: #57463a;
 `;
 export const HeroText = styled.p`
   font-size: 16px;
   line-height: 150%;
-  // color: #000000;
 `;
 
 // RESUME LEVEL
@@ -89,7 +87,6 @@ export const ResumeLevelTitle = styled.h2`
   font-weight: 400;
   font-size: 30px;
   line-height: 150%;
-  // color: #000000;
 `;
 export const ResumeLevelDescription = styled.p`
   font-size: 24px;
@@ -118,7 +115,6 @@ export const PhilosophiText = styled.p`
   line-height: 150%;
   text-align: right;
 
-  // color: #323232;
 `;
 
 // Feedback

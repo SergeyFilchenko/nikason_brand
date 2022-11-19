@@ -96,12 +96,10 @@ export const WhyList = styled.p`
   font-weight: 700;
   font-size: 16px;
   line-height: 150%;
-  // color: #323232;
 `;
 export const WhyText = styled.p`
   font-size: 16px;
   line-height: 150%;
-  // color: #323232;
 
   width: 320px;
   margin-bottom: 80px;
@@ -157,12 +155,10 @@ export const StagesListText = styled.p`
   font-weight: 300;
   font-size: 16px;
   line-height: 102.99%;
-  // color: #323232;
 `;
 export const StagesListDigit = styled.p`
   font-size: 48px;
   line-height: 150%;
-  // color: #57463a;
 `;
 export const Footer = styled.div`
   display: flex;
