@@ -27,7 +27,6 @@ import {
   FooterSectionSocialItem,
   FooterSectionSocialList,
   FooterSectionSocialLogo,
-  Link,
   Hero,
   HeroImg,
   HeroContainer,
@@ -68,26 +67,70 @@ import {
   VarantySection,
   VarantyTitle,
   VarantyText,
+  HeroContainerLink,
+  Scroll,
 } from "./main.styled";
 import { NavLink } from "react-router-dom";
 
+import React, { useState, useRef } from "react";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
+import Overlay from "react-bootstrap/Overlay";
+import Tooltip from "react-bootstrap/Tooltip";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+
 export default function Main() {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const [See, setSee] = useState(false);
+  const handleCloseServises = () => setSee(false);
+  const handleShowServises = () => setSee(true);
+
+  const [showFooter, setShowFooter] = useState(false);
+  const target = useRef(null);
+
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Terms of use – это основные публичные документы любого сайта, который
+      предоставляет те или иные услуги. Для маркетплейсов, которым нужно
+      предусмотреть множество аспектов предоставления услуг, эти публичные
+      документы имеют особое значение. При подготовке таких документов не
+      следует делать акцент на одном из них, так как оба документа имеют
+      одинаковую значимость. Terms of use устанавливает правила пользования
+      сайтом для пользователями.
+    </Tooltip>
+  );
+
   return (
     <MainSection>
       <ContainerHeader>
         <List>
           <Item>
-            <NavLink to="master">Мастер-классы</NavLink>
+            <NavLink to="/master" activeClassName="active">
+              Мастер-классы
+            </NavLink>
           </Item>
           <Item>
-            <NavLink to="order">Мебель на заказ</NavLink>
+            <NavLink to="/order" activeClassName="active">
+              Мебель на заказ
+            </NavLink>
           </Item>
         </List>
         <Brand src={brand} alt="brand"></Brand>
         <List>
-          <Item href="#">Контакты</Item>
           <Item>
-            <NavLink to="about">О нас</NavLink>
+            <NavLink to="/" activeClassName="active">
+              Главная
+            </NavLink>
+          </Item>
+
+          <Item>
+            <NavLink to="/about" activeClassName="active">
+              О нас
+            </NavLink>
           </Item>
         </List>
       </ContainerHeader>
@@ -103,7 +146,11 @@ export default function Main() {
           <HeroContainerDescr>
             Авторская мебель ручной работы, сделанная с душой и трепетом.
           </HeroContainerDescr>
-          <HeroContainerBtn>Смотреть услуги</HeroContainerBtn>
+          <HeroContainerBtn>
+            <HeroContainerLink href="#services">
+              Смотреть услуги
+            </HeroContainerLink>
+          </HeroContainerBtn>
         </HeroContainer>
       </Hero>
       <This>
@@ -189,12 +236,35 @@ export default function Main() {
               <br />
               Никита - мастер по дереву, вся мебель делается его умелыми руками.
             </FamilyAboutText>
-            <FamilyAboutBtn>Подробнее о нас</FamilyAboutBtn>
+            <FamilyAboutBtn variant="primary" onClick={handleShow}>
+              Подробнее о нас
+            </FamilyAboutBtn>
           </FamilyAbout>
         </FamilyContainer>
+
+        <Modal
+          show={show}
+          onHide={handleClose}
+          backdrop="static"
+          keyboard={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>О НАС</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>NIKASON BRAND это семейная мастеркая</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Understood
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </Family>
+
       <Services>
-        <ServicesTitle>Наши услуги</ServicesTitle>
+        <ServicesTitle id="services">Наши услуги</ServicesTitle>
         <ServicesOrder>
           <ServicesOrderImg src={order}></ServicesOrderImg>
           <ServicesContainer>
@@ -205,7 +275,9 @@ export default function Main() {
               изделий. Возможность создания своего неповторимого стиля,
               уникальность и неповторимость каждого изделия.
             </ServicesText>
-            <ServicesBtn>Заказать мебель</ServicesBtn>
+            <ServicesBtn onClick={handleShowServises}>
+              Заказать мебель
+            </ServicesBtn>
           </ServicesContainer>
         </ServicesOrder>
         <ServicesMK>
@@ -220,9 +292,64 @@ export default function Main() {
               обновлённым видом мебели, но и с теплотой помнить, что эта мебель
               была сделана талантливыми предками.
             </ServicesText>
-            <ServicesBtn>Купить мастер-класс</ServicesBtn>
+            <ServicesBtn variant="primary" onClick={handleShowServises}>
+              Купить мастер-класс
+            </ServicesBtn>
           </ServicesContainer>
         </ServicesMK>
+
+        <Modal show={See} onHide={handleCloseServises}>
+          <Modal.Header closeButton>
+            <Modal.Title>Данные для связи</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form>
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlInput1"
+              >
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="name@example.com"
+                  autoFocus
+                />
+              </Form.Group>
+
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlInput1"
+              >
+                <Form.Label>Tel</Form.Label>
+                <Form.Control
+                  type="tel"
+                  placeholder="067 365 0 769"
+                  autoFocus
+                />
+              </Form.Group>
+
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlTextarea1"
+              >
+                <Form.Label>Пожелания</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  placeholder="НАПРИМЕР: Мессенджер для связи "
+                />
+              </Form.Group>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleCloseServises}>
+              Закрыть
+            </Button>
+            <Button variant="primary" onClick={handleCloseServises}>
+              Отправить
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </Services>
 
       <Varanty>
@@ -244,54 +371,63 @@ export default function Main() {
       <Footer>
         <FooterSection>
           <FooterSectionItem>
-            <Link href="./">Мастер-классы</Link>
+            <OverlayTrigger
+              placement="top"
+              delay={{ show: 250, hide: 400 }}
+              overlay={renderTooltip}
+            >
+              <Button variant="success">Договор оферты</Button>
+            </OverlayTrigger>
           </FooterSectionItem>
           <FooterSectionItem>
-            <Link href="./">Мебель на заказ</Link>
-          </FooterSectionItem>
-        </FooterSection>
-
-        <FooterSection>
-          <FooterSectionItem>
-            <Link href="./">Контакты</Link>
-          </FooterSectionItem>
-          <FooterSectionItem>
-            <Link href="./">О нас</Link>
-          </FooterSectionItem>
-        </FooterSection>
-
-        <FooterSection>
-          <FooterSectionItem>
-            <Link href="./">Политика кофиденциальности</Link>
-          </FooterSectionItem>
-          <FooterSectionItem>
-            <Link href="./">Договор оферты</Link>
+            <Button ref={target} onClick={() => setShowFooter(!showFooter)}>
+              Политика кофиденциальности
+            </Button>
           </FooterSectionItem>
         </FooterSection>
 
         <FooterSection>
           <FooterSectionSocialList>
             <FooterSectionSocialItem>
-              <FooterSectionSocialLogo
-                src={telega}
-                alt="telegram"
-              ></FooterSectionSocialLogo>
+              <a href="https://t.me/FSG_90">
+                <FooterSectionSocialLogo
+                  src={telega}
+                  alt="telegram"
+                ></FooterSectionSocialLogo>
+              </a>
             </FooterSectionSocialItem>
             <FooterSectionSocialItem>
-              <FooterSectionSocialLogo
-                src={insta}
-                alt="instagram"
-              ></FooterSectionSocialLogo>
+              <a href="https://www.instagram.com/seregafilchenko/">
+                <FooterSectionSocialLogo
+                  src={insta}
+                  alt="instagram"
+                ></FooterSectionSocialLogo>
+              </a>
             </FooterSectionSocialItem>
             <FooterSectionSocialItem>
-              <FooterSectionSocialLogo
-                src={whats}
-                alt="whatsapp"
-              ></FooterSectionSocialLogo>
+              <a href="https://vb.me/letsChatOnViber">
+                <FooterSectionSocialLogo
+                  src={whats}
+                  alt="whatsapp"
+                ></FooterSectionSocialLogo>
+              </a>
             </FooterSectionSocialItem>
           </FooterSectionSocialList>
         </FooterSection>
+
+        <Overlay target={target.current} show={showFooter} placement="top">
+          {(props) => (
+            <Tooltip id="overlay-example" {...props}>
+              Copyright © bip.net.ua <br />
+              Все права защищены
+            </Tooltip>
+          )}
+        </Overlay>
       </Footer>
+      <Scroll href="#">
+        SCROLL <br />
+        TO TOP
+      </Scroll>
     </MainSection>
   );
 }

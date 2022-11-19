@@ -10,7 +10,6 @@ import {
   FooterSectionSocialItem,
   FooterSectionSocialList,
   FooterSectionSocialLogo,
-  Link,
   Hero,
   HeroTitle,
   HeroBtn,
@@ -70,29 +69,66 @@ import r9 from "..//..//images/Rectangle 44.png";
 import r10 from "..//..//images/milan-popovic-BmyXTxyDL-I-unsplash 1.png";
 import { NavLink, Outlet } from "react-router-dom";
 
+import Accordion from "react-bootstrap/Accordion";
+import React, { useState, useRef } from "react";
+import Button from "react-bootstrap/Button";
+import Overlay from "react-bootstrap/Overlay";
+import Tooltip from "react-bootstrap/Tooltip";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import { Scroll } from "../../components/main/main.styled";
+
 export default function Master() {
+  const [showFooter, setShowFooter] = useState(false);
+  const target = useRef(null);
+
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Terms of use – это основные публичные документы любого сайта, который
+      предоставляет те или иные услуги. Для маркетплейсов, которым нужно
+      предусмотреть множество аспектов предоставления услуг, эти публичные
+      документы имеют особое значение. При подготовке таких документов не
+      следует делать акцент на одном из них, так как оба документа имеют
+      одинаковую значимость. Terms of use устанавливает правила пользования
+      сайтом для пользователями.
+    </Tooltip>
+  );
+
   return (
     <MasterClass>
+      <Scroll href="#">
+        SCROLL <br />
+        TO TOP
+      </Scroll>
       <ContainerHeader>
         <List>
           <Item>
-            <NavLink to="master">Мастер-классы</NavLink>
+            <NavLink to="/master" activeClassName="active">
+              Мастер-классы
+            </NavLink>
           </Item>
-          <Item href="#">Мебель на заказ</Item>
+          <Item>
+            <NavLink to="/order">Мебель на заказ</NavLink>
+          </Item>
         </List>
-        <NavLink to="main">
+        <NavLink to="/">
           <Brand src={brand} alt="brand"></Brand>
         </NavLink>
 
         <List>
-          <Item href="#">Контакты</Item>
-          <Item href="#">О нас</Item>
+          <Item>
+            <NavLink to="/" activeClassName="active">
+              Главная
+            </NavLink>
+          </Item>
+          <Item>
+            <NavLink to="/about">О нас</NavLink>
+          </Item>
         </List>
       </ContainerHeader>
 
       <Hero>
         <HeroTitle>Нам доверяют мебель с историей в 120 лет</HeroTitle>
-        <HeroBtn>Смотреть мастер-классы</HeroBtn>
+        <HeroBtn href="#MK">Смотреть мастер-классы</HeroBtn>
       </Hero>
 
       <WorkSection>
@@ -185,7 +221,7 @@ export default function Master() {
       </Technique>
 
       <Restore>
-        <RestoreTitle>Мастер-классы по реставрации мебели</RestoreTitle>
+        <RestoreTitle id="MK">Мастер-классы по реставрации мебели</RestoreTitle>
         <RestoreList>
           <RestoreItem>
             <RestoreImg src={r1}></RestoreImg>
@@ -254,60 +290,78 @@ export default function Master() {
             руководство непременно станет вашей настольной книгой по реставрации
             мебели.
           </RedesignText>
-          <RedesignBtn>Подробнее</RedesignBtn>
+          <RedesignBtn>
+            {/* Подробнее */}
+            <Accordion defaultActiveKey="1">
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Подробнее</Accordion.Header>
+                <Accordion.Body>
+                  Здесь мы собрали всю информацию от подбора инстурментов и
+                  материалов до сборки мебели и фурнитуры. Чтобы вы
+                  самостоятельно могли разобраться с нюансами работы со старой
+                  мебелью из дерева.
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+          </RedesignBtn>
         </RedesignLeft>
         <RedesignImg src={r10}></RedesignImg>
       </Redesign>
       <Footer>
         <FooterSection>
           <FooterSectionItem>
-            <Link href="./">Мастер-классы</Link>
+            <OverlayTrigger
+              placement="top"
+              delay={{ show: 250, hide: 400 }}
+              overlay={renderTooltip}
+            >
+              <Button variant="success">Договор оферты</Button>
+            </OverlayTrigger>
           </FooterSectionItem>
           <FooterSectionItem>
-            <Link href="./">Мебель на заказ</Link>
-          </FooterSectionItem>
-        </FooterSection>
-
-        <FooterSection>
-          <FooterSectionItem>
-            <Link href="./">Контакты</Link>
-          </FooterSectionItem>
-          <FooterSectionItem>
-            <Link href="./">О нас</Link>
-          </FooterSectionItem>
-        </FooterSection>
-
-        <FooterSection>
-          <FooterSectionItem>
-            <Link href="./">Политика кофиденциальности</Link>
-          </FooterSectionItem>
-          <FooterSectionItem>
-            <Link href="./">Договор оферты</Link>
+            <Button ref={target} onClick={() => setShowFooter(!showFooter)}>
+              Политика кофиденциальности
+            </Button>
           </FooterSectionItem>
         </FooterSection>
 
         <FooterSection>
           <FooterSectionSocialList>
             <FooterSectionSocialItem>
-              <FooterSectionSocialLogo
-                src={telega}
-                alt="telegram"
-              ></FooterSectionSocialLogo>
+              <a href="https://t.me/FSG_90">
+                <FooterSectionSocialLogo
+                  src={telega}
+                  alt="telegram"
+                ></FooterSectionSocialLogo>
+              </a>
             </FooterSectionSocialItem>
             <FooterSectionSocialItem>
-              <FooterSectionSocialLogo
-                src={insta}
-                alt="instagram"
-              ></FooterSectionSocialLogo>
+              <a href="https://www.instagram.com/seregafilchenko/">
+                <FooterSectionSocialLogo
+                  src={insta}
+                  alt="instagram"
+                ></FooterSectionSocialLogo>
+              </a>
             </FooterSectionSocialItem>
             <FooterSectionSocialItem>
-              <FooterSectionSocialLogo
-                src={whats}
-                alt="whatsapp"
-              ></FooterSectionSocialLogo>
+              <a href="https://vb.me/letsChatOnViber">
+                <FooterSectionSocialLogo
+                  src={whats}
+                  alt="whatsapp"
+                ></FooterSectionSocialLogo>
+              </a>
             </FooterSectionSocialItem>
           </FooterSectionSocialList>
         </FooterSection>
+
+        <Overlay target={target.current} show={showFooter} placement="top">
+          {(props) => (
+            <Tooltip id="overlay-example" {...props}>
+              Copyright © bip.net.ua <br />
+              Все права защищены
+            </Tooltip>
+          )}
+        </Overlay>
       </Footer>
       <Outlet />
     </MasterClass>

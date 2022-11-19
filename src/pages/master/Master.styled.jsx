@@ -55,7 +55,10 @@ export const HeroTitle = styled.h1`
   margin-bottom: 97px;
 `;
 
-export const HeroBtn = styled.button`
+export const HeroBtn = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: 700;
   font-size: 16px;
   line-height: 150%;
@@ -259,13 +262,15 @@ export const Footer = styled.div`
   height: 380px;
   background: #715b4b;
 `;
-export const FooterSection = styled.div``;
+export const FooterSection = styled.div`
+  display: flex;
+`;
 export const FooterSectionList = styled.ul``;
 export const FooterSectionItem = styled.li`
   line-height: 150%;
   color: #f6f6f6;
   :not(last-child) {
-    margin-bottom: 30px;
+    margin-right: 150px;
   }
 `;
 export const Link = styled.a``;

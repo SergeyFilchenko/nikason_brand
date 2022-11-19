@@ -5,6 +5,15 @@ import brand from "..//..//images/IMG_1024 1.png";
 import logo from "..//..//images/Rectangle 83.png";
 import resume from "..//..//images/IMG_4420 1.png";
 
+import { NavLink } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
+import React, { useState, useRef } from "react";
+import Overlay from "react-bootstrap/Overlay";
+import Tooltip from "react-bootstrap/Tooltip";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+
 import {
   AboutSection,
   ContainerHeader,
@@ -17,7 +26,6 @@ import {
   FooterSectionSocialItem,
   FooterSectionSocialList,
   FooterSectionSocialLogo,
-  Link,
   Hero,
   HeroTitle,
   HeroLogo,
@@ -38,19 +46,56 @@ import {
   FeedbackBtn,
   FeedbackTitle,
 } from "./About.styled";
+import { Scroll } from "../../components/main/main.styled";
 
 export default function About() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const [showFooter, setShowFooter] = useState(false);
+  const target = useRef(null);
+
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Terms of use – это основные публичные документы любого сайта, который
+      предоставляет те или иные услуги. Для маркетплейсов, которым нужно
+      предусмотреть множество аспектов предоставления услуг, эти публичные
+      документы имеют особое значение. При подготовке таких документов не
+      следует делать акцент на одном из них, так как оба документа имеют
+      одинаковую значимость. Terms of use устанавливает правила пользования
+      сайтом для пользователями.
+    </Tooltip>
+  );
+
   return (
     <AboutSection>
+      <Scroll href="#">
+        SCROLL <br />
+        TO TOP
+      </Scroll>
       <ContainerHeader>
         <List>
-          <Item href="#">Мастер-классы</Item>
-          <Item href="#">Мебель на заказ</Item>
+          <Item>
+            <NavLink to="/master">Мастер-классы</NavLink>
+          </Item>
+          <Item>
+            <NavLink to="/order">Мебель на заказ</NavLink>
+          </Item>
         </List>
-        <Brand src={brand} alt="brand"></Brand>
+        <NavLink to="/">
+          <Brand src={brand} alt="brand"></Brand>
+        </NavLink>
         <List>
-          <Item href="#">Контакты</Item>
-          <Item href="#">О нас</Item>
+          <Item>
+            <NavLink to="/" activeClassName="active">
+              Главная
+            </NavLink>
+          </Item>
+          <Item>
+            <NavLink to="/about">О нас</NavLink>
+          </Item>
         </List>
       </ContainerHeader>
       <Hero>
@@ -108,58 +153,114 @@ export default function About() {
       </Philosophi>
       <Feedback>
         <FeedbackTitle>Оставьте заявку и мы с вами свяжемся</FeedbackTitle>
-        <FeedbackBtn>Оставить заявку</FeedbackBtn>
+        <FeedbackBtn onClick={handleShow}>Оставить заявку</FeedbackBtn>
+
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Данные для связи</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form>
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlInput1"
+              >
+                <Form.Label>Имя</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Например: Андрей"
+                  autoFocus
+                />
+              </Form.Group>
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlInput1"
+              >
+                <Form.Label>Телефон</Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="+38 067 565 0 565"
+                  autoFocus
+                />
+              </Form.Group>
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlTextarea1"
+              >
+                <Form.Label>Ваши пожелания</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  placeholder="Например: Звонить с 9 до 18"
+                />
+              </Form.Group>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Закрыть
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Отправить
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </Feedback>
       <Footer>
         <FooterSection>
           <FooterSectionItem>
-            <Link href="./">Мастер-классы</Link>
+            <OverlayTrigger
+              placement="top"
+              delay={{ show: 250, hide: 400 }}
+              overlay={renderTooltip}
+            >
+              <Button variant="success">Договор оферты</Button>
+            </OverlayTrigger>
           </FooterSectionItem>
           <FooterSectionItem>
-            <Link href="./">Мебель на заказ</Link>
-          </FooterSectionItem>
-        </FooterSection>
-
-        <FooterSection>
-          <FooterSectionItem>
-            <Link href="./">Контакты</Link>
-          </FooterSectionItem>
-          <FooterSectionItem>
-            <Link href="./">О нас</Link>
-          </FooterSectionItem>
-        </FooterSection>
-
-        <FooterSection>
-          <FooterSectionItem>
-            <Link href="./">Политика кофиденциальности</Link>
-          </FooterSectionItem>
-          <FooterSectionItem>
-            <Link href="./">Договор оферты</Link>
+            <Button ref={target} onClick={() => setShowFooter(!showFooter)}>
+              Политика кофиденциальности
+            </Button>
           </FooterSectionItem>
         </FooterSection>
 
         <FooterSection>
           <FooterSectionSocialList>
             <FooterSectionSocialItem>
-              <FooterSectionSocialLogo
-                src={telega}
-                alt="telegram"
-              ></FooterSectionSocialLogo>
+              <a href="https://t.me/FSG_90">
+                <FooterSectionSocialLogo
+                  src={telega}
+                  alt="telegram"
+                ></FooterSectionSocialLogo>
+              </a>
             </FooterSectionSocialItem>
             <FooterSectionSocialItem>
-              <FooterSectionSocialLogo
-                src={insta}
-                alt="instagram"
-              ></FooterSectionSocialLogo>
+              <a href="https://www.instagram.com/seregafilchenko/">
+                <FooterSectionSocialLogo
+                  src={insta}
+                  alt="instagram"
+                ></FooterSectionSocialLogo>
+              </a>
             </FooterSectionSocialItem>
             <FooterSectionSocialItem>
-              <FooterSectionSocialLogo
-                src={whats}
-                alt="whatsapp"
-              ></FooterSectionSocialLogo>
+              <a href="https://vb.me/letsChatOnViber">
+                <FooterSectionSocialLogo
+                  src={whats}
+                  alt="whatsapp"
+                ></FooterSectionSocialLogo>
+              </a>
             </FooterSectionSocialItem>
           </FooterSectionSocialList>
         </FooterSection>
+
+        <Overlay target={target.current} show={showFooter} placement="top">
+          {(props) => (
+            <Tooltip id="overlay-example" {...props}>
+              Copyright © bip.net.ua <br />
+              Все права защищены
+            </Tooltip>
+          )}
+        </Overlay>
       </Footer>
     </AboutSection>
   );

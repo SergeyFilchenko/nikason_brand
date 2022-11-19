@@ -60,12 +60,12 @@ export const HeroItems = styled.li`
 export const HeroItem = styled.p`
   font-size: 48px;
   line-height: 150%;
-  color: #57463a;
+  // color: #57463a;
 `;
 export const HeroText = styled.p`
   font-size: 16px;
   line-height: 150%;
-  color: #000000;
+  // color: #000000;
 `;
 
 // RESUME LEVEL
@@ -89,7 +89,7 @@ export const ResumeLevelTitle = styled.h2`
   font-weight: 400;
   font-size: 30px;
   line-height: 150%;
-  color: #000000;
+  // color: #000000;
 `;
 export const ResumeLevelDescription = styled.p`
   font-size: 24px;
@@ -118,7 +118,7 @@ export const PhilosophiText = styled.p`
   line-height: 150%;
   text-align: right;
 
-  color: #323232;
+  // color: #323232;
 `;
 
 // Feedback
@@ -162,13 +162,15 @@ export const Footer = styled.div`
   height: 380px;
   background: #715b4b;
 `;
-export const FooterSection = styled.div``;
+export const FooterSection = styled.div`
+  display: flex;
+`;
 export const FooterSectionList = styled.ul``;
 export const FooterSectionItem = styled.li`
   line-height: 150%;
   color: #f6f6f6;
   :not(last-child) {
-    margin-bottom: 30px;
+    margin-right: 150px;
   }
 `;
 export const Link = styled.a``;
