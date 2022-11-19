@@ -75,8 +75,6 @@ export const HeroContainerDescr = styled.p`
   font-weight: 300;
   font-size: 16px;
   line-height: 150%;
-
-  // color: #323232;
 `;
 export const HeroContainerTitle = styled.h1`
   width: 514px;
@@ -141,8 +139,6 @@ export const ThisListItem = styled.p`
   font-size: 18px;
   line-height: 150%;
   margin-bottom: 14px;
-
-  // color: #323232;
 `;
 
 // DESIGN SECTION
