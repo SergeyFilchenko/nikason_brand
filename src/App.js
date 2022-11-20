@@ -28,6 +28,7 @@ function App() {
           <Route path="/master" element={<Master />} />
           <Route path="/order" element={<Order />} />
           <Route path="/about" element={<About />} />
+          <Route path="*" element={<Main />} />
         </Routes>
         <GlobalStyles />
       </>
