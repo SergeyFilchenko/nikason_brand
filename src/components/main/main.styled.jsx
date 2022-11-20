@@ -16,6 +16,10 @@ export const Scroll = styled.a`
   font-family: verdana;
   font-size: 12px;
   border-radius: 21px;
+  @media screen and (max-width: 767px) {
+    bottom: 50px;
+    right: 230px;
+  }
 `;
 
 export const Theme = styled.button`
@@ -35,16 +39,22 @@ export const Theme = styled.button`
 `;
 
 export const ContainerHeader = styled.div`
-  min-width: 1440px;
-  padding: 68px 0px 54px 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 1px solid #000000;
-  @media (min-width: 320px) and (max-width: 768px) {
-    min-width: 1000px;
-    font-size: 24px;
+  @media screen and (max-width: 767px) {
+    width: 984px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #000000;
     padding: 40px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    display: flex;
+    border-bottom: 1px solid #000000;
+    align-items: center;
+    justify-content: center;
+    min-width: 1440px;
+    padding: 68px 0px 54px 0px;
   }
 `;
 
@@ -76,10 +86,11 @@ export const Brand = styled.img`
 // HEROES_SECTION
 
 export const Hero = styled.div`
-  display: block;
-  padding: 40px;
-  width: 1000px;
-  text-align: center;
+  @media screen and (max-width: 767px) {
+    display: block;
+    width: 1000px;
+    text-align: center;
+  }
   @media screen and (min-width: 768px) {
     display: flex;
     justify-content: center;
@@ -87,7 +98,7 @@ export const Hero = styled.div`
 `;
 export const HeroImg = styled.img`
   @media screen and (min-width: 320px) and (max-width: 768px) {
-    width: 100%;
+    width: 90%;
   }
 `;
 export const HeroContainer = styled.div`
@@ -137,8 +148,8 @@ export const This = styled.div`
   display: flex;
   flex-direction: column;
   align-items: baseline;
-  width: 1000px;
-  padding: 40px;
+  width: 890px;
+  padding: 10px;
 
   @media screen and (min-width: 768px) {
     margin-top: 160px;
@@ -159,7 +170,7 @@ export const ThisList = styled.ul`
 `;
 export const ThisListItems = styled.li`
   :not(:last-child) {
-    margin-right: 58px;
+    margin-right: 8px;
   }
   @media screen and (min-width: 768px) {
     :not(:last-child) {
@@ -181,11 +192,17 @@ export const ThisListItems = styled.li`
   }
 `;
 export const ThisListItem = styled.p`
-  width: 298px;
-  font-weight: 300;
-  font-size: 18px;
-  line-height: 150%;
-  margin-bottom: 14px;
+  @media screen and (max-width: 767px) {
+    width: 270px;
+    font-size: 18px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 298px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 150%;
+    margin-bottom: 14px;
+  }
 `;
 
 // DESIGN SECTION
@@ -216,13 +233,24 @@ export const DesignItem = styled.li`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 288px;
-  height: 250px;
+
+  // width: 288px;
+  // height: 250px;
+  width: 233px;
+  height: 230px;
+  @media screen and (min-width: 768px) {
+    width: 288px;
+    height: 250px;
+  }
   border: 1px solid #000000;
 `;
 export const DesignItemImg = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
+  @media screen and (min-width: 768px) {
+    width: 100px;
+    height: 100px;
+  }
 `;
 export const DesignItemText = styled.p`
   font-size: 18px;
@@ -365,19 +393,23 @@ export const ServicesMKimg = styled.img``;
 
 export const Varanty = styled.div`
   text-align: center;
-  padding-left: 20px;
+  padding: 40px;
+  width: 1000px;
   @media screen and (min-width: 768px) {
     padding: 160px 140px 0px 140px;
   }
 `;
 export const VarantyContainer = styled.div`
-  width: 1160px;
+  width: 892px;
   height: 590px;
   border: 7px solid #a1b29f;
 
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (min-width: 768px) {
+    width: 1160px;
+  }
 `;
 export const VarantySection = styled.ul`
   position: relative;
@@ -393,7 +425,7 @@ export const VarantySection = styled.ul`
     background-repeat: no-repeat;
     background-size: cover;
   }
-  width: 1135px;
+  width: 870px;
   height: 563px;
   border: 1px solid #715b4b;
 
@@ -401,6 +433,10 @@ export const VarantySection = styled.ul`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media screen and (min-width: 768px) {
+    width: 1135px;
+  }
 `;
 export const VarantyTitle = styled.h1`
   width: 658px;
@@ -429,7 +465,7 @@ export const Footer = styled.div`
     padding-left: 50px;
     padding-right: 50px;
     margin-top: 181px;
-    min-width: 1174px;
+    min-width: 990px;
     height: 300px;
     background: #715b4b;
   }
