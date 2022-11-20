@@ -52,7 +52,6 @@ export const Item = styled.li`
     margin-right: 125px;
   }
 `;
-export const Home = styled.li``;
 export const Brand = styled.img`
   margin-right: 250px;
   margin-left: 250px;
