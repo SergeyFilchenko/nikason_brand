@@ -15,6 +15,11 @@ const Button = styled.button`
   bottom: 115px;
   right: 50px;
   cursor: pointer;
+  @media screen and (max-width: 767px) {
+    bottom: 130px;
+    right: 230px;
+  }
+
   }
 `;
 const Toggle = ({ theme, toggleTheme }) => {
