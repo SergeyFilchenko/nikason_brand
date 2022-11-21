@@ -7,11 +7,23 @@ export const MasterClass = styled.div``;
 // HEADER
 
 export const ContainerHeader = styled.div`
-  min-width: 1440px;
-  padding: 68px 0px 54px 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @media screen and (max-width: 767px) {
+    width: 984px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #000000;
+    padding: 40px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    display: flex;
+    border-bottom: 1px solid #000000;
+    align-items: center;
+    justify-content: center;
+    min-width: 1440px;
+    padding: 68px 0px 54px 0px;
+  }
 `;
 
 export const List = styled.ul`
@@ -21,9 +33,17 @@ export const Item = styled.li`
   color: #323232;
   :not(:last-child) {
     margin-right: 125px;
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+      margin-right: 30px;
+    }
   }
 `;
 export const Brand = styled.img`
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+
   margin-right: 250px;
   margin-left: 250px;
   background-repeat: no-repeat;
@@ -31,11 +51,10 @@ export const Brand = styled.img`
   width: 87px;
   height: 86px;
 `;
-
 // HEROES
 
 export const Hero = styled.div`
-  min-width: 1440px;
+  width: 922px;
   height: 639px;
   background-image: url(${logo});
   background-repeat: no-repeat;
@@ -46,13 +65,19 @@ export const Hero = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (min-width: 768px) {
+    min-width: 1440px;
+  }
 `;
 export const HeroTitle = styled.h1`
   font-weight: 400;
-  font-size: 48px;
+  font-size: 40px;
   line-height: 150%;
   color: #f6f6f6;
   margin-bottom: 97px;
+  @media screen and (min-width: 768px) {
+    font-size: 48px;
+  }
 `;
 
 export const HeroBtn = styled.a`
@@ -72,7 +97,14 @@ export const HeroBtn = styled.a`
 `;
 
 // WORK SECTION
-export const WorkSection = styled.div``;
+export const WorkSection = styled.div`
+  @media screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 922px;
+  }
+`;
 export const WorkTitle = styled.h1`
   margin-left: 140px;
   margin-bottom: 50px;
@@ -105,6 +137,12 @@ export const WorkText = styled.p`
 
 export const Technique = styled.div`
   margin-top: 160px;
+  @media screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 922px;
+  }
 `;
 export const TechniqueTitle = styled.h1`
   margin-left: 140px;
@@ -117,7 +155,9 @@ export const TechniqueList = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: start;
-  margin-left: 454px;
+  @media screen and (min-width: 768px) {
+    margin-left: 454px;
+  }
 `;
 export const TechniqueItems = styled.li`
   display: flex;
@@ -165,13 +205,22 @@ export const TechniqueText = styled.p`
 
 export const Restore = styled.div`
   margin-top: 100px;
+  @media screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    width: 922px;
+    align-items: center;
+  }
 `;
 export const RestoreTitle = styled.h1`
-  margin-left: 140px;
   margin-bottom: 104px;
-  font-size: 48px;
+  font-size: 40px;
   line-height: 150%;
   color: #57463a;
+  @media screen and (min-width: 768px) {
+    font-size: 48px;
+    margin-left: 140px;
+  }
 `;
 export const RestoreList = styled.ul`
   display: flex;
@@ -194,8 +243,10 @@ export const RestoreText = styled.p`
 `;
 
 export const RestoreBottom = styled.ul`
-  display: flex;
   margin-left: 140px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
 `;
 export const RestoreBottomItem = styled.li`
   :not(:last-child) {
@@ -216,13 +267,29 @@ export const RestoreBottomText = styled.p`
 export const Redesign = styled.div`
   margin-top: 157px;
   display: flex;
-  padding: 0px 140px 0px 140px;
+  align-items: center;
+  @media screen and (max-width: 767px) {
+    flex-direction: column-reverse;
+    width: 922px;
+  }
+  @media screen and (min-width: 768px) {
+    padding: 0px 140px 0px 140px;
+  }
 `;
-export const RedesignLeft = styled.div``;
+export const RedesignLeft = styled.div`
+  @media screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
 export const RedesignTitle = styled.h1`
-  font-size: 48px;
+  font-size: 35px;
   line-height: 150%;
   color: #57463a;
+  @media screen and (min-width: 768px) {
+    font-size: 48px;
+  }
 `;
 export const RedesignText = styled.p`
   margin-top: 100px;
@@ -252,15 +319,28 @@ export const RedesignImg = styled.img`
 // FOOTER
 
 export const Footer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding-left: 50px;
-  padding-right: 50px;
-  margin-top: 181px;
-  min-width: 1440px;
-  height: 380px;
-  background: #715b4b;
+  @media screen and (max-width: 767px) {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 181px;
+    min-width: 990px;
+    height: 300px;
+    background: #715b4b;
+  }
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 181px;
+    min-width: 1440px;
+    height: 300px;
+    background: #715b4b;
+  }
 `;
 export const FooterSection = styled.div`
   display: flex;
@@ -273,7 +353,6 @@ export const FooterSectionItem = styled.li`
     margin-right: 150px;
   }
 `;
-export const Link = styled.a``;
 
 export const FooterSectionSocialList = styled.ul`
   display: flex;
