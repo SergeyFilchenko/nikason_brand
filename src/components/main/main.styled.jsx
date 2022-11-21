@@ -147,7 +147,7 @@ export const This = styled.div`
   text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: baseline;
+  align-items: center;
   width: 890px;
   padding: 10px;
 
@@ -219,6 +219,9 @@ export const DesignTitle = styled.h1`
   line-height: 150%;
   color: #57463a;
   margin-bottom: 100px;
+  @media screen and (max-width: 767px) {
+    text-align: center;
+  }
 `;
 
 export const DesignList = styled.ul`
