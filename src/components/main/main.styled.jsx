@@ -40,7 +40,7 @@ export const Theme = styled.button`
 
 export const ContainerHeader = styled.div`
   @media screen and (max-width: 767px) {
-    min-width: 1095px;
+    min-width: 1169px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,7 +88,7 @@ export const Brand = styled.img`
 export const Hero = styled.div`
   @media screen and (max-width: 767px) {
     display: block;
-    min-width: 1095px;
+    min-width: 1169px;
     text-align: center;
   }
   @media screen and (min-width: 768px) {
@@ -468,7 +468,7 @@ export const Footer = styled.div`
     padding-left: 50px;
     padding-right: 50px;
     margin-top: 181px;
-    min-width: 1095px;
+    min-width: 1169px;
     height: 300px;
     background: #715b4b;
   }
