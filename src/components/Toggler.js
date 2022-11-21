@@ -16,7 +16,7 @@ const Button = styled.button`
   right: 50px;
   cursor: pointer;
   @media screen and (max-width: 767px) {
-    bottom: 130px;
+    bottom: 265px;
     right: 230px;
   }
 

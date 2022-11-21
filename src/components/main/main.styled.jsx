@@ -17,7 +17,7 @@ export const Scroll = styled.a`
   font-size: 12px;
   border-radius: 21px;
   @media screen and (max-width: 767px) {
-    bottom: 50px;
+    bottom: 195px;
     right: 230px;
   }
 `;
@@ -40,7 +40,7 @@ export const Theme = styled.button`
 
 export const ContainerHeader = styled.div`
   @media screen and (max-width: 767px) {
-    width: 984px;
+    min-width: 1095px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,7 +88,7 @@ export const Brand = styled.img`
 export const Hero = styled.div`
   @media screen and (max-width: 767px) {
     display: block;
-    width: 1000px;
+    min-width: 1095px;
     text-align: center;
   }
   @media screen and (min-width: 768px) {
@@ -98,7 +98,7 @@ export const Hero = styled.div`
 `;
 export const HeroImg = styled.img`
   @media screen and (min-width: 320px) and (max-width: 768px) {
-    width: 90%;
+    width: 100%;
   }
 `;
 export const HeroContainer = styled.div`
@@ -468,7 +468,7 @@ export const Footer = styled.div`
     padding-left: 50px;
     padding-right: 50px;
     margin-top: 181px;
-    min-width: 990px;
+    min-width: 1095px;
     height: 300px;
     background: #715b4b;
   }

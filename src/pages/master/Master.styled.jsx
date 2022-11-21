@@ -8,7 +8,7 @@ export const MasterClass = styled.div``;
 
 export const ContainerHeader = styled.div`
   @media screen and (max-width: 767px) {
-    width: 984px;
+    min-width: 1095px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,7 +54,7 @@ export const Brand = styled.img`
 // HEROES
 
 export const Hero = styled.div`
-  width: 922px;
+  min-width: 1095px;
   height: 639px;
   background-image: url(${logo});
   background-repeat: no-repeat;
@@ -326,7 +326,7 @@ export const Footer = styled.div`
     padding-left: 50px;
     padding-right: 50px;
     margin-top: 181px;
-    min-width: 990px;
+    min-width: 1095px;
     height: 300px;
     background: #715b4b;
   }
