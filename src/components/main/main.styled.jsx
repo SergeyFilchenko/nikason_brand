@@ -148,7 +148,7 @@ export const This = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 890px;
+  min-width: 1095px;
   padding: 10px;
 
   @media screen and (min-width: 768px) {
@@ -453,7 +453,7 @@ export const VarantyText = styled.p`
   font-weight: 300;
   font-size: 24px;
   line-height: 150%;
-  color: #000000;
+  // color: #000000;
   margin-top: 40px;
 `;
 export const Varantylogo = styled.img``;

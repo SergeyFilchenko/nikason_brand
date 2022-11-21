@@ -196,7 +196,7 @@ export const TechniqueText = styled.p`
   font-weight: 300;
   font-size: 18px;
   line-height: 150%;
-  color: #000000;
+  // color: #000000;
   margin-left: 43px;
 `;
 
@@ -296,7 +296,7 @@ export const RedesignText = styled.p`
   margin-bottom: 50px;
   font-size: 18px;
   line-height: 150%;
-  color: #000000;
+  // color: #000000;
   width: 591px;
 `;
 export const RedesignBtn = styled.button`
